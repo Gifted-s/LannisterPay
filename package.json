@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start server.js -i max",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "start-dev": "pm2 start server.js -i max",
     "monit":" pm2 monit",
     "delete":"pm2 delete server",
     "lint": "eslint '**/*.js?(x)'",
+    "init":"pm2 init",
     "debug": "node server.js"
   },
   "author": "",
