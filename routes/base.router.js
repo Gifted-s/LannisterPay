@@ -30,15 +30,16 @@ baseRouter.post('/fees', async (req, res) => {
 
 baseRouter.post('/compute-transaction-fees', async (req, res) => {
   try {
-    const validationResult = transactioFeeBodyValidator(req.body);
-    if (validationResult.error) {
-      return res.status(400).send({ Error: validationResult.error });
-    }
-    const computeTransactionFeeControllerResponse = await handleComputeTransactionFee(validationResult.value);
-    if (computeTransactionFeeControllerResponse.error) {
-      return res.status(400).send({ Error: computeTransactionFeeControllerResponse.errorMessage });
-    }
-    res.status(200).send(computeTransactionFeeControllerResponse);
+    return res.send("test")
+    // const validationResult = transactioFeeBodyValidator(req.body);
+    // if (validationResult.error) {
+    //   return res.status(400).send({ Error: validationResult.error });
+    // }
+    // const computeTransactionFeeControllerResponse = await handleComputeTransactionFee(validationResult.value);
+    // if (computeTransactionFeeControllerResponse.error) {
+    //   return res.status(400).send({ Error: computeTransactionFeeControllerResponse.errorMessage });
+    // }
+    // res.status(200).send(computeTransactionFeeControllerResponse);
   } catch (error) {
     return res.status(500).send({ Error: error.message });
   }
