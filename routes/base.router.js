@@ -6,7 +6,7 @@ const transactioFeeBodyValidator = require('../helpers/validators/transactioFeeB
 const baseRouter = express.Router();
 
 baseRouter.get('/', (req,res,next)=>{
-  return res.status(200).send({StATUS: "UP", PORT: req.url})
+  return res.status(200).send({STATUS: "SERVER IS UP"})
 })
 baseRouter.post('/fees', async (req, res) => {
   try {
