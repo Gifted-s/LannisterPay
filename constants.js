@@ -1,0 +1,3 @@
+module.exports = {
+  FLOW: 'TRANSACTION_PROCESSING_FEE_SERVICE'
+};
