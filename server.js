@@ -1,15 +1,11 @@
-// const { FLOW } = require('./constants')
-
-const constants = require('./constants');
-
-// const utils = require('./utils/index')
+const { FLOW } = require('./constants')
 require('dotenv').config();
 
-// const httpPort = utils.normalizePort('8000')
 const startServer = async () => {
   try {
     const app = require('./app'); // eslint-disable-line global-require
-    app.listen(8000, (err) => {
+    const PORT = process.env.PORT || 8000
+    app.listen(PORT, (err) => {
       if (err) {
         console.log(JSON.stringify(err));
         switch (err.code) {
@@ -24,9 +20,9 @@ const startServer = async () => {
         }
       }
       console.log('==============================================');
-      console.log('SERVER RUNNINING ON localhost:8000');
+      console.log(`ERVER RUNNINING ON ${PORT}`);
       console.log(`MODE = ${process.env.NODE_ENV}`);
-      console.log(`FLOW = ${constants.FLOW}`);
+      console.log(`FLOW = ${FLOW}`);
       console.log('===============================================');
       // Success: server started on port ${httpPort}
     });
