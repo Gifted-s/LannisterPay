@@ -20,7 +20,7 @@ const startServer = async () => {
         }
       }
       console.log('==============================================');
-      console.log(`ERVER RUNNINING ON ${PORT}`);
+      console.log(`SERVER RUNNINING ON ${PORT}`);
       console.log(`MODE = ${process.env.NODE_ENV}`);
       console.log(`FLOW = ${FLOW}`);
       console.log('===============================================');
