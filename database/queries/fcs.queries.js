@@ -38,13 +38,14 @@ const findValidConfigurations = async (PaymentEntity) => {
       ]
     }).project({ _id: 0 });
     const validConfigurations = await queryResult.toArray();
-    // const mostSpecificConfig = computeMostSpecificConfig(res, PaymentEntity);
+    // console.log((await queryResult.explain()).executionStats )
     return validConfigurations;
-    // return (await queryResult.toArray())[0]; // This will return the most suitable configuration specifications by ranking but we will select the first one
   } catch (error) {
     return { error: true, message: error.message };
   }
 };
+
+
 
 const insertConfigsToDB = async (configurations) => {
   try {
