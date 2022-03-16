@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "start-dev": "pm2 start server.js -i max && pm2 monit",
+    "start": "pm2 start server.js -i max",
+    "start-dev": "pm2 start server.js -i max",
     "monit":" pm2 monit",
     "delete":"pm2 delete server",
     "lint": "eslint '**/*.js?(x)'",
