@@ -5,6 +5,9 @@ const fcsReqBodyValidator = require('../helpers/validators/fcsReqBodyValidator')
 const transactioFeeBodyValidator = require('../helpers/validators/transactioFeeBodyValidator');
 const baseRouter = express.Router();
 
+baseRouter.get('/', (req,res,next)=>{
+  return res.status(200).send({StATUS: "UP", PORT: req.url})
+})
 baseRouter.post('/fees', async (req, res) => {
   try {
     const validationResult = fcsReqBodyValidator(req.body);
