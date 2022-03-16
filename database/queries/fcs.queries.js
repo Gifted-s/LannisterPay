@@ -1,6 +1,6 @@
 const client = require('..');
 const computeMostSpecificConfig = require('../../helpers/compute-most-suitable-config');
-const { FCS_COLLECTION_NAME, DB_NAME, SEARCH_INDEX_IDENTIFIER } = require('../config/db-config');
+const { FCS_COLLECTION_NAME, DB_NAME } = require('../config/db-config');
 const findValidConfigurations = async (PaymentEntity) => {
   try {
     const db = client.db(DB_NAME);
@@ -9,30 +9,6 @@ const findValidConfigurations = async (PaymentEntity) => {
       $and: [
         {
           $or: [{ 'FEE-ENTITY.TYPE': PaymentEntity.Type }, { 'FEE-ENTITY.TYPE': '*' }]
-        },
-        {
-          $or:
-            [{ 'FEE-ENTITY.ENTITY-PROPERTY': PaymentEntity.ID },
-              { 'FEE-ENTITY.ENTITY-PROPERTY': PaymentEntity.Issuer },
-              { 'FEE-ENTITY.ENTITY-PROPERTY': PaymentEntity.Brand },
-              { 'FEE-ENTITY.ENTITY-PROPERTY': PaymentEntity.Number },
-              { 'FEE-ENTITY.ENTITY-PROPERTY': PaymentEntity.SixID },
-              { 'FEE-ENTITY.ENTITY-PROPERTY': '*' }
-            ]
-        },
-
-        {
-          $or:
-            [{ 'FEE-LOCALE': PaymentEntity.Locale },
-              { 'FEE-LOCALE': '*' }
-            ]
-        },
-
-        {
-          $or:
-            [{ 'FEE-CURRENCY': PaymentEntity.Currency },
-              { 'FEE-CURRENCY': '*' }
-            ]
         }
 
       ]
