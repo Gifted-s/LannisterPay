@@ -6,7 +6,7 @@ const transactioFeeBodyValidator = require('../helpers/validators/transactioFeeB
 const baseRouter = express.Router();
 
 baseRouter.get('/', (req,res,next)=>{
-  return res.status(200).send({STATUS: "SERVER IS UP"})
+  return res.status(200).send({STATUS: "SERVER IS UP "})
 })
 baseRouter.post('/fees', async (req, res) => {
   try {
@@ -34,21 +34,11 @@ baseRouter.post('/compute-transaction-fees', async (req, res) => {
     if (validationResult.error) {
       return res.status(400).send({ Error: validationResult.error });
     }
-    // const computeTransactionFeeControllerResponse = await handleComputeTransactionFee(validationResult.value);
-    // if (computeTransactionFeeControllerResponse.error) {
-    //   return res.status(400).send({ Error: computeTransactionFeeControllerResponse.errorMessage });
-    // }
-    res.send("SUCCESS");
-
-    // const fcsCustomStruct = fcsParser(validationResult.value.FeeConfigurationSpec);
-    // if (fcsCustomStruct.error) {
-    //   return res.status(400).send({ Error: fcsCustomStruct.error });
-    // }
-    // const controllerResponse = await FeeController.handleAddConfigurationSpec(fcsCustomStruct);
-    // if (controllerResponse.error) {
-    //   return res.status(400).send({ Error: controllerResponse.errorMessage });
-    // }
-    // return res.status(200).send({ status: controllerResponse.status });
+    const computeTransactionFeeControllerResponse = await handleComputeTransactionFee(validationResult.value);
+    if (computeTransactionFeeControllerResponse.error) {
+      return res.status(400).send({ Error: computeTransactionFeeControllerResponse.errorMessage });
+    }
+    res.status(200).send(computeTransactionFeeControllerResponse);
   } catch (error) {
     return res.status(500).send({ Error: error.message });
   }
