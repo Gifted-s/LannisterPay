@@ -34,11 +34,11 @@ baseRouter.post('/compute-transaction-fees', async (req, res) => {
     if (validationResult.error) {
       return res.status(400).send({ Error: validationResult.error });
     }
-    const computeTransactionFeeControllerResponse = await handleComputeTransactionFee(validationResult.value);
-    if (computeTransactionFeeControllerResponse.error) {
-      return res.status(400).send({ Error: computeTransactionFeeControllerResponse.errorMessage });
-    }
-    res.send(computeTransactionFeeControllerResponse);
+    // const computeTransactionFeeControllerResponse = await handleComputeTransactionFee(validationResult.value);
+    // if (computeTransactionFeeControllerResponse.error) {
+    //   return res.status(400).send({ Error: computeTransactionFeeControllerResponse.errorMessage });
+    // }
+    res.send("SUCCESS");
 
     // const fcsCustomStruct = fcsParser(validationResult.value.FeeConfigurationSpec);
     // if (fcsCustomStruct.error) {
