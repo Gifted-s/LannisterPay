@@ -1,4 +1,4 @@
-const e = require('express');
+
 const { insertConfigsToDB, findValidConfigurations } = require('../database/queries/fcs.queries');
 const computeMostSpecificConfig = require('../helpers/compute-most-suitable-config');
 const computeTransactionFee = require('../helpers/computeTransactionFee');

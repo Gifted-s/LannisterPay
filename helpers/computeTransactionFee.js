@@ -11,7 +11,7 @@ module.exports = function (fcsConfig, amount, bearsFee) {
       AppliedFeeValue = parseInt(fcsConfig['FEE-VALUE']);
       break;
     case 'PERC':
-      perc = parseFloat(fcsConfig['FEE-VALUE']);
+      const perc = parseFloat(fcsConfig['FEE-VALUE']);
       AppliedFeeValue = Math.round(((perc / 100) * amount));
       break;
     default:
@@ -29,4 +29,3 @@ module.exports = function (fcsConfig, amount, bearsFee) {
   };
   return transactionFeeBody;
 };
-
