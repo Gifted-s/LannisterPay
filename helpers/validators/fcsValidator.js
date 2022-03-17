@@ -20,7 +20,7 @@ module.exports = function (payload) {
 
     'FEE-TYPE': Joi.string().valid('FLAT', 'PERC', 'FLAT_PERC'),
 
-    'FEE-VALUE': Joi.alternatives().conditional('FEE-TYPE', { switch: [{ is: 'FLAT', then: Joi.number().integer().positive().required() }, { is: 'PERC', then: Joi.number().integer().positive().required() }, { is: 'FLAT_PERC', then: Joi.string() }] })
+    'FEE-VALUE': Joi.alternatives().conditional('FEE-TYPE', { switch: [{ is: 'FLAT', then: Joi.number().integer().positive().required() }, { is: 'PERC', then: Joi.number().positive().required() }, { is: 'FLAT_PERC', then: Joi.string() }] })
 
   });
 
