@@ -3,7 +3,7 @@ module.exports = function transactionFeeBodyValidator (payload) {
   const transactionFeeBodySchema = Joi.object({
     ID: Joi.number().integer().positive().required(),
     Amount: Joi.number().integer().positive().allow(0).required(),
-    Currency: Joi.string().valid('NGN', '*').messages({
+    Currency: Joi.string().valid('NGN').messages({
       'any.only': `No fee configuration for ${payload.Currency} transactions.`
     }),
     CurrencyCountry: Joi.string().required(),

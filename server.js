@@ -1,10 +1,10 @@
-const { FLOW } = require('./constants')
+const { FLOW } = require('./constants');
 require('dotenv').config();
 
 const startServer = async () => {
   try {
     const app = require('./app'); // eslint-disable-line global-require
-    const PORT = process.env.PORT || 8000
+    const PORT = process.env.PORT || 8000;
     app.listen(PORT, (err) => {
       if (err) {
         console.log(JSON.stringify(err));
