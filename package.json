@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "author": "Adewumi Sunkanmi <sunkanmiadewumi1@gmail.com>",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "start-dev": "nodemon server.js",
