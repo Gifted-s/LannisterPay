@@ -8,7 +8,7 @@ function computeMostSpecificConfig (configurations, payload) {
       specificityCount++;
     }
 
-    if (currentConfig['FEE-LOCALE'] === payload.LOC) {
+    if (currentConfig['FEE-LOCALE'] === payload.Locale) {
       specificityCount++;
     }
     if (currentConfig['FEE-ENTITY'].TYPE === payload.Type) {

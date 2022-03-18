@@ -33,8 +33,8 @@ const findValidConfigurations = async (PaymentEntity) => {
         return true;
       }
     });
-    if(validConfigurations.length===0){
-     return { error: true, message: `No valid Fee Configuation Specification found` }
+    if (validConfigurations.length === 0) {
+      return { error: true, message: 'No valid Fee Configuation Specification found' };
     }
     return validConfigurations;
   } catch (error) {
@@ -44,7 +44,7 @@ const findValidConfigurations = async (PaymentEntity) => {
 
 const insertConfigsToDB = (configurations) => {
   return new Promise((resolve, reject) => {
-    fs.writeFile('./database/fcs_config_collection/fcs_config_collection.json', JSON.stringify(configurations), function (err) {
+    fs.writeFile('./src/database/fcs_config_collection/fcs_config_collection.json', JSON.stringify(configurations), function (err) {
       if (err) {
         return reject({ error: true, message: `Could not insert configurations:  ${err.message}` });
       }

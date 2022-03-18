@@ -1,4 +1,4 @@
-module.exports = function (CurrencyCountry, Currency, PaymentEntity) {
+module.exports = function enhancePaymentEntity (CurrencyCountry, Currency, PaymentEntity) {
   if (CurrencyCountry === PaymentEntity.Country) {
     PaymentEntity.Locale = 'LOCL';
   } else {

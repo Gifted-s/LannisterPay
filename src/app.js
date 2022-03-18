@@ -2,7 +2,7 @@ require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const cors = require('cors');
-const Logger = require('./helpers/logger');
+const Logger = require('./logger');
 const baseRouter = require('./routes/base.router');
 const app = express();
 app.use(cors());

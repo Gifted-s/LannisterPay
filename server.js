@@ -1,13 +1,15 @@
-const { FLOW } = require('./constants');
+const app = require('./src/app');
+const { FLOW } = require('./src/constants');
+const Logger = require('./src/logger');
 require('dotenv').config();
 
 const startServer = async () => {
   try {
-    const app = require('./app'); // eslint-disable-line global-require
+    // eslint-disable-line global-require
     const PORT = process.env.PORT || 8000;
     app.listen(PORT, (err) => {
       if (err) {
-        console.log(JSON.stringify(err));
+        Logger.error('SERVER STARTUP ERROR', JSON.stringify(err));
         switch (err.code) {
           case 'EACCES':
             // Error: ${err.port} requires elevated privileges

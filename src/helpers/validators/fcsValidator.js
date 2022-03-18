@@ -1,11 +1,11 @@
 const Joi = require('joi');
 
-module.exports = function (payload) {
+function fcsValidator (payload) {
   const fcsValidationSchema = Joi.object({
     'FEE-ID': Joi.string().alphanum().length(8).required(),
 
-    'FEE-CURRENCY': Joi.string().valid('NGN', '*').messages({
-      'any.only': `No fee configuration for ${payload['FEE-CURRENCY']} transactions.`
+    'FEE-CURRENCY': Joi.string().valid('NGN', '*').required().messages({
+      'any.only': `No fee configuration for ${payload['FEE-CURRENCY'] ? payload['FEE-CURRENCY'] : 'empty currency(no currency present)'} transactions.`
     }),
 
     'FEE-LOCALE': Joi.string()
@@ -30,3 +30,5 @@ module.exports = function (payload) {
   }
   return validationResult;
 };
+
+module.exports = fcsValidator;

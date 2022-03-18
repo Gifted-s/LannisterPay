@@ -24,7 +24,6 @@ const fcsParser = (rawFCSString) => {
     if (validationResult.error) {
       return { error: `${validationResult.error} at Fee Configuration Spec: ${i + 1} ` };
     }
-    // console.log(validationResult)
     configs.push(tempFCS);
   }
 

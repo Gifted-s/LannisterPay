@@ -1,4 +1,4 @@
-module.exports = function (fcsConfig, amount, bearsFee) {
+module.exports = function computeTransactionFee (fcsConfig, amount, bearsFee) {
   let AppliedFeeValue;
   switch (fcsConfig['FEE-TYPE']) {
     case 'FLAT_PERC':
