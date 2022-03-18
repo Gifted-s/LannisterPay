@@ -2,14 +2,15 @@
   "name": "flutterwave_codebase",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "start-dev": "nodemon server.js",
-    "monit":" pm2 monit",
-    "delete":"pm2 delete server",
+    "monit": " pm2 monit",
+    "delete": "pm2 delete server",
     "lint": "eslint '**/*.js?(x)'",
-    "init":"pm2 init",
+    "init": "pm2 init",
+    "test": "jest",
     "debug": "node server.js"
   },
   "author": "",
@@ -21,7 +22,6 @@
     "express": "^4.17.3",
     "http-errors": "^2.0.0",
     "joi": "^17.6.0",
-    "joi-decimal": "^1.1.2",
     "mongodb": "^4.4.1",
     "pm2": "^5.2.0",
     "winston": "^3.6.0"
@@ -33,6 +33,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15"
   }
 }
