@@ -12,7 +12,7 @@ module.exports = function transactionFeeBodyValidator (payload) {
       ID: Joi.number().integer().positive().required(),
       EmailAddress: Joi.string().email().required(),
       FullName: Joi.string().required(),
-      BearsFee: Joi.boolean().required(),
+      BearsFee: Joi.boolean().required()
     }),
 
     PaymentEntity: Joi.object({
