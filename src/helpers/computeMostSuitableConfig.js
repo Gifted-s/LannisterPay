@@ -1,5 +1,5 @@
 /**
- * @description computeMostSuitableConfig willcompute the fee specification configuration that best suit a transaction payload by using specificity count algorithm
+ * @description computeMostSuitableConfig will compute the fee specification configuration that best suit a transaction payload by using specificity count algorithm
  * @param {array} configurations an array of valid fee configuration specifications
  * @param {object} payload payment entity object
  * @returns {object} the most suitable configuration for the transaction payload based on specificity count
