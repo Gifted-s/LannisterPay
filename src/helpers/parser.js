@@ -12,18 +12,23 @@ const fcsParser = (rawFCSString) => {
 
   const configs = [];
   for (let i = 0; i < fcsStringArray.length; i++) {
+
     /**  extract tokens from each transaction configuration specification string */
     const tokens = fcsStringArray[i].split(' ');
     /** validate tokens */
     const tokenValidationResult = tokenValidator(tokens, i + 1);
+
     /** check and handle error while validating tokens */
     if (tokenValidationResult.error) {
       return { error: tokenValidationResult.error };
     }
+
     /** create customized transaction configuration specification from tokens  */
     const customFCSConfigFromTokens = createCustomFCSFromTokens(tokens);
+
     /** validate custom fee configuration specification  */
     const validationResult = fcsSchemaValidator(customFCSConfigFromTokens);
+    
     /** check and handle error found while validating custom fcs */
     if (validationResult.error) {
       return { error: `${validationResult.error} at Fee Configuration Spec: ${i + 1} ` };
