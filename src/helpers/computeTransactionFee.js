@@ -1,3 +1,11 @@
+/**
+ * @description computeTransactionFee will compute the transaction fee for a particular transaction using the fcs config passed
+ * @param {object} fcsConfig  fee configuration spec to use for computation
+ * @param {integer} amount  The non-negative, numeric transaction amount
+ * @param {boolean} bearsFee a boolean to check if customer should bear transaction processing fee charge
+ * @returns an object that contains AppliedFeeID, AppliedFeeValue, ChargeAmount, SettlementAmount
+ */
+
 module.exports = function computeTransactionFee (fcsConfig, amount, bearsFee) {
   let AppliedFeeValue = 0;
   switch (fcsConfig['FEE-TYPE']) {

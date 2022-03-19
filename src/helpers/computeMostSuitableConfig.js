@@ -1,3 +1,9 @@
+/**
+ * @description computeMostSuitableConfig willcompute the fee specification configuration that best suit a transaction payload by using specificity count algorithm
+ * @param {array} configurations an array of valid fee configuration specifications
+ * @param {object} payload payment entity object
+ * @returns {object} the most suitable configuration for the transaction payload based on specificity count
+ */
 function computeMostSuitableConfig (configurations, payload) {
   let maxSpecificityCount = 0;
   let mostSpecificConfigIndex = 0;

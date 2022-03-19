@@ -1,3 +1,8 @@
+/**
+ * @description createCustomFCSFromTokens will create a customized fee configuration specification from an array of tokens
+ * @param {array} tokens an array of tokens to be used to construct customized configuration specification
+ * @returns {object} customized configuration
+ */
 function createCustomFCSFromTokens (tokens) {
   const customFCS = {};
   customFCS['FEE-ID'] = tokens[0];
