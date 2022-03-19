@@ -1,4 +1,4 @@
-function computeMostSpecificConfig (configurations, payload) {
+function computeMostSuitableConfig (configurations, payload) {
   let maxSpecificityCount = 0;
   let mostSpecificConfigIndex = 0;
   for (let i = 0; i < configurations.length; i++) {
@@ -30,4 +30,4 @@ function computeMostSpecificConfig (configurations, payload) {
   return configurations[mostSpecificConfigIndex];
 }
 
-module.exports = computeMostSpecificConfig;
+module.exports = computeMostSuitableConfig;

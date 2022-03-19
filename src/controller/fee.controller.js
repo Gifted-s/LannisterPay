@@ -1,6 +1,6 @@
 
 const { insertConfigsToDB, findValidConfigurations } = require('../database/queries/fcs.queries');
-const computeMostSpecificConfig = require('../helpers/compute-most-suitable-config');
+const computeMostSpecificConfig = require('../helpers/computeMostSuitableConfig');
 const computeTransactionFee = require('../helpers/computeTransactionFee');
 const enhancePaymentEntity = require('../helpers/enhancePaymentEntity');
 

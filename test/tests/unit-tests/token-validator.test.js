@@ -157,6 +157,34 @@ describe('tokens  validator', () => {
     ], 0)).toEqual({ error: 'FEE-VALUE must contain a Positive Integer and a Positive Float Number in this format [int:float]  at Fee Configuration Spec: 0 , please check FeeConfigurationSpec and try again' });
   });
 
+  it('should return an error if FEE-VALUE is set to a string that is not convertable to integer', () => {
+    const validationResult = tokenValidator([
+      'LNPY1222',
+      'NGN',
+      'INTL',
+      'CREDIT-CARD(VISA)',
+      ':',
+      'APPLY',
+      'FLAT',
+      'abc'
+    ], 0);
+    expect(validationResult).toEqual({ error: 'FEE-VALUE is not represented as a positive Integer at Fee Configuration Spec: 0 , please check FeeConfigurationSpec and try again' });
+  });
+
+  it('should return an error if FEE-VALUE is set to a string that is not convertable to float', () => {
+    const validationResult = tokenValidator([
+      'LNPY1222',
+      'NGN',
+      'INTL',
+      'CREDIT-CARD(VISA)',
+      ':',
+      'APPLY',
+      'PERC',
+      'abc'
+    ], 0);
+    expect(validationResult).toEqual({ error: 'FEE-VALUE is not represented as a positive Float at Fee Configuration Spec: 0 , please check FeeConfigurationSpec and try again' });
+  });
+
   it('should accept zero for token 7 if token 6 is set to FLAT', () => {
     const validationResult = tokenValidator([
       'LNPY1222',

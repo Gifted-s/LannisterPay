@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "author": "Adewumi Sunkanmi <sunkanmiadewumi1@gmail.com>",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "start-dev": "nodemon server.js",
@@ -11,10 +10,11 @@
     "delete": "pm2 delete server",
     "lint": "eslint '**/*.js?(x)'",
     "init": "pm2 init",
-    "test": "jest",
+    "test": "jest --coverage --coverageReporters=\"text-summary\"",
+    "test-with-coverage": "jest --coverage",
     "debug": "node server.js"
   },
-  "author": "",
+  "author": "Adewumi Sunkanmi <sunkanmiadewumi1@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",

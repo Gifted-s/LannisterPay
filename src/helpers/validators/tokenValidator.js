@@ -49,9 +49,6 @@ module.exports = function (tokens, fcsConfigNumber) {
     if (parseFloat(feeValueToArray[1]) < 0) {
       return { error: `FEE-VALUE must contain a Positive Integer and a Positive Float Number in this format [int:float]  at Fee Configuration Spec: ${fcsConfigNumber} , please check FeeConfigurationSpec and try again` };
     }
-  } else {
-    return { error: `FEE-VALUE is not valid try representing it as a Float, Integer or in the format "[Integer:Float]" Fee Configuration Spec: ${fcsConfigNumber} , please check FeeConfigurationSpec and try again` };
   }
-
   return { allTokensPresent: true };
 };

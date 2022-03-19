@@ -1,5 +1,5 @@
 module.exports = function computeTransactionFee (fcsConfig, amount, bearsFee) {
-  let AppliedFeeValue;
+  let AppliedFeeValue = 0;
   switch (fcsConfig['FEE-TYPE']) {
     case 'FLAT_PERC':
       const splitedFeeValue = fcsConfig['FEE-VALUE'].split(':');
@@ -13,8 +13,6 @@ module.exports = function computeTransactionFee (fcsConfig, amount, bearsFee) {
     case 'PERC':
       const perc = parseFloat(fcsConfig['FEE-VALUE']);
       AppliedFeeValue = Math.round(((perc / 100) * amount));
-      break;
-    default:
       break;
   }
 
