@@ -12,7 +12,7 @@ const FeeController = {};
  */
 FeeController.handleAddConfigurationSpec = async (configurations) => {
   try {
-    /**  nsert configurations to database */
+    /**  insert configurations to database */
     const insertResult = await insertConfigsToDB(configurations);
     /** check and handle error while inserting configuration specification to database */
     if (insertResult.error) {
