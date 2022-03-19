@@ -12,9 +12,7 @@ const FeeController = {};
  */
 FeeController.handleAddConfigurationSpec = async (configurations) => {
   try {
-    /**  insert configurations to database */
     const insertResult = await insertConfigsToDB(configurations);
-    /** check and handle error while inserting configuration specification to database */
     if (insertResult.error) {
       return { status: 'failed', errorMessage: insertResult.message, error: true };
     }
@@ -40,7 +38,6 @@ FeeController.handleComputeTransactionFee = async (transactionPayload) => {
     /** find all the valid fee configuration specifications  */
     const validConfigs = await findValidConfigurations(PaymentEntity);
 
-    /** check and handle error while finding valid configuration specifications */
     if (validConfigs.error) {
       return { status: 'failed', errorMessage: validConfigs.message, error: true };
     }
