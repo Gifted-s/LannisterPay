@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser should return an array of a custom configurations 1`] = `
+Array [
+  Object {
+    "FEE-CURRENCY": "NGN",
+    "FEE-ENTITY": Object {
+      "ENTITY-PROPERTY": "*",
+      "TYPE": "*",
+    },
+    "FEE-ID": "LNPY1221",
+    "FEE-LOCALE": "*",
+    "FEE-TYPE": "PERC",
+    "FEE-VALUE": "1.4",
+  },
+  Object {
+    "FEE-CURRENCY": "NGN",
+    "FEE-ENTITY": Object {
+      "ENTITY-PROPERTY": "VISA",
+      "TYPE": "CREDIT-CARD",
+    },
+    "FEE-ID": "LNPY1222",
+    "FEE-LOCALE": "INTL",
+    "FEE-TYPE": "PERC",
+    "FEE-VALUE": "5.0",
+  },
+  Object {
+    "FEE-CURRENCY": "NGN",
+    "FEE-ENTITY": Object {
+      "ENTITY-PROPERTY": "*",
+      "TYPE": "CREDIT-CARD",
+    },
+    "FEE-ID": "LNPY1223",
+    "FEE-LOCALE": "LOCL",
+    "FEE-TYPE": "FLAT_PERC",
+    "FEE-VALUE": "50:1.4",
+  },
+  Object {
+    "FEE-CURRENCY": "NGN",
+    "FEE-ENTITY": Object {
+      "ENTITY-PROPERTY": "*",
+      "TYPE": "BANK-ACCOUNT",
+    },
+    "FEE-ID": "LNPY1224",
+    "FEE-LOCALE": "*",
+    "FEE-TYPE": "FLAT",
+    "FEE-VALUE": "100",
+  },
+  Object {
+    "FEE-CURRENCY": "NGN",
+    "FEE-ENTITY": Object {
+      "ENTITY-PROPERTY": "MTN",
+      "TYPE": "USSD",
+    },
+    "FEE-ID": "LNPY1225",
+    "FEE-LOCALE": "*",
+    "FEE-TYPE": "PERC",
+    "FEE-VALUE": "0.55",
+  },
+]
+`;

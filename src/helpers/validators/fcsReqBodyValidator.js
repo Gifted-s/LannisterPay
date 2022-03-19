@@ -1,8 +1,5 @@
 
 const Joi = require('joi');
-/**
- * @desc
- */
 module.exports = function fcsReqBodyValidator (payload) {
   const fcsReqBodySchema = Joi.object({
     FeeConfigurationSpec: Joi.string()

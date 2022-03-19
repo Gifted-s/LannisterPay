@@ -1,32 +1,35 @@
 
+const createCustomFCSFromTokens = require('./createCustomFCSFromTokens');
 const fcsSchemaValidator = require('./validators/fcsValidator');
 const tokenValidator = require('./validators/tokenValidator');
-
+/**
+ *
+ * @param {string} rawFCSString fee configuration specification in string format
+ * @returns {array[object]} array of valid customized fee configuration specification in cutomized format
+ */
 const fcsParser = (rawFCSString) => {
   const fcsStringArray = rawFCSString.split('\n');
 
   const configs = [];
   for (let i = 0; i < fcsStringArray.length; i++) {
-    const tempFCS = {};
+    /**  extract tokens from each transaction configuration specification string */
     const tokens = fcsStringArray[i].split(' ');
+    /** validate tokens */
     const tokenValidationResult = tokenValidator(tokens, i + 1);
+    /** check and handle error while validating tokens */
     if (tokenValidationResult.error) {
       return { error: tokenValidationResult.error };
     }
-    tempFCS['FEE-ID'] = tokens[0];
-    tempFCS['FEE-CURRENCY'] = tokens[1];
-    tempFCS['FEE-LOCALE'] = tokens[2];
-    tempFCS['FEE-ENTITY'] = { TYPE: tokens[3].slice(0, tokens[3].indexOf('(')) };
-    tempFCS['FEE-ENTITY']['ENTITY-PROPERTY'] = tokens[3].slice(tokens[3].indexOf('(') + 1, tokens[3].length - 1);
-    tempFCS['FEE-TYPE'] = tokens[6];
-    tempFCS['FEE-VALUE'] = tokens[7];
-    const validationResult = fcsSchemaValidator(tempFCS);
+    /** create customized transaction configuration specification from tokens  */
+    const customFCSConfigFromTokens = createCustomFCSFromTokens(tokens);
+    /** validate custom fee configuration specification  */
+    const validationResult = fcsSchemaValidator(customFCSConfigFromTokens);
+    /** check and handle error found while validating custom fcs */
     if (validationResult.error) {
       return { error: `${validationResult.error} at Fee Configuration Spec: ${i + 1} ` };
     }
-    configs.push(tempFCS);
+    configs.push(customFCSConfigFromTokens);
   }
-
   return configs;
 };
 

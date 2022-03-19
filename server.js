@@ -30,7 +30,7 @@ const startServer = async () => {
     });
   } catch (err) {
     // Error: problem starting the server
-    console.log(JSON.stringify(err));
+    Logger.error('SERVER STARTUP ERROR', JSON.stringify(err));
   }
 };
 
