@@ -1,7 +1,7 @@
 # Lannister Pay(v1.0)
 
 
-## Services exposed by the library
+## Features
 
 
 - Store various valid fee configuration specification
