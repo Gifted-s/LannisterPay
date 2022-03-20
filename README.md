@@ -24,13 +24,13 @@
 
 Run install command on your terminal
 
-```json
+```console
 npm install
 ```
 
 OR
 
-```json
+```console
 yarn install
 ```
 
@@ -69,7 +69,7 @@ $ docker run -p 8000:8000 --env NODE_ENV=development ayodeji00/lannister:v1
 The server is now accessible at localhost:8000
 
 ### Option 3 (Build and run docker image locally)
-Ensure docker setup on your machine
+Ensure docker is available and running on your machine
 
 Run build command
 
