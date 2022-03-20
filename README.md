@@ -4,7 +4,7 @@
 ## Features
 
 
-- Store various valid fee configuration specification
+- Store fee configuration specifications
 - Compute transaction prosessing fee
 
 
