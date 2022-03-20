@@ -203,25 +203,30 @@ To compute transaction processing fee, make a HTTP POST  to http://localhost:800
 ```
 
 Request body details
-```
-**ID** The unique id of the transaction.
-**Amount** The non-negative, numeric transaction amount.
-**Currency** The transaction currency.
-**CurrencyCountry** Country the transaction currency is applicable in. Useful for determining the transaction locale.
+
+**ID**: The unique id of the transaction.
+
+**Amount**: The non-negative, numeric transaction amount.
+
+**Currency**: The transaction currency.
+
+**CurrencyCountry**: Country the transaction currency is applicable in. Useful for determining the transaction locale.
+
 **Customer** An object containing the customer information. It has the following fields:
-    **ID** Unique id of the customer .
-    **EmailAddress** Email address of the customer.
-    **FullName** Full name of the customer.
-    **BearsFee** Indicates whether or not the customer is set to bear the transaction cost. If this is true, the final amount to charge the customer is     Amount + ApplicableFee, if not, the customer is charged the same value as the transaction amount.
+    **ID**: Unique id of the customer .
+    **EmailAddress**: Email address of the customer.
+    **FullName**: Full name of the customer.
+    **BearsFee**: Indicates whether or not the customer is set to bear the transaction cost. If this is true, the final amount to charge the customer is     Amount + ApplicableFee, if not, the customer is charged the same value as the transaction amount.
+
 **PaymentEntity** An object representing the payment entity to be charged for the transaction. It has the following fields:
-    {ID} - Unique id of the entity.
-    {Issuer} - The issuing company / organization for the entity e.g. Banks, Telco Providers / Wallet Service Providers.
-    {Brand} - Applicable only to card-type transactions e.g. MASTERCARD, VISA, AMEX, VERVE e.t.c.
-    {Number} The payment entity number (masked pan in case of credit/debit cards, bank account numbers, mobile numbers, wallet ids e.t.c.)
-    {SixID} The first six digits of the payment entity number.
-    {Type} The type of the entity e.g. CREDIT-CARD, DEBIT-CARD, BANK-ACCOUNT, USSD, WALLET-ID
-    {Country} The issuing country of the entity e.g. NG, US, GH, KE e.t.c. It's used together with the CurrencyCountry to determine a transaction's locale.
-```
+    **ID**: - Unique id of the entity.
+    **Issuer**: - The issuing company / organization for the entity e.g. Banks, Telco Providers / Wallet Service Providers.
+    **Brand**: - Applicable only to card-type transactions e.g. MASTERCARD, VISA, AMEX, VERVE e.t.c.
+    **Number**: The payment entity number (masked pan in case of credit/debit cards, bank account numbers, mobile numbers, wallet ids e.t.c.)
+    **SixID**: The first six digits of the payment entity number.
+    **Type**: The type of the entity e.g. CREDIT-CARD, DEBIT-CARD, BANK-ACCOUNT, USSD, WALLET-ID
+    **Country**: The issuing country of the entity e.g. NG, US, GH, KE e.t.c. It's used together with the CurrencyCountry to determine a transaction's locale.
+
 #### Sample success response body ( HTTP 200 OK )
 
 ```json
@@ -234,17 +239,20 @@ Request body details
 ```
 
 Response body details
-```
-{AppliedFeeID} ID of the fee applied to the transaction.
-{AppliedFeeValue} Computed value of the applied fee. Note that, for flat fees, this is the same as the fee value. For percentage fees, this is obtained by doing ((fee value * transaction amount ) / 100) and for FLAT_PERC types, this is obtained by doing flat fee value + ((fee value * transaction amount ) / 100). An example, if the transaction amount is 1500:
+
+**AppliedFeeID**: ID of the fee applied to the transaction.
+
+**AppliedFeeValue**: Computed value of the applied fee. Note that, for flat fees, this is the same as the fee value. For percentage fees, this is obtained by doing ((fee value * transaction amount ) / 100) and for FLAT_PERC types, this is obtained by doing flat fee value + ((fee value * transaction amount ) / 100). An example, if the transaction amount is 1500:
     For configuration LNPY0221 NGN LOCL CREDIT-CARD(*) : APPLY PERC 1.4, AppliedFeeValue = (1.4 / 100) * 1500
     For configuration LNPY0222 NGN LOCL CREDIT-CARD(*) : APPLY FLAT 140, AppliedFeeValue = 140
     For configuration LNPY0223 NGN LOCL CREDIT-CARD(*) : APPLY FLAT_PERC 140:1.4, AppliedFeeValue = 140 + ((1.4 / 100) * 1500)
-{ChargeAmount} The final amount to charge the customer for the transaction. The value is dependent on what Customer.BearsFee is set to.
+
+**ChargeAmount**: The final amount to charge the customer for the transaction. The value is dependent on what Customer.BearsFee is set to.
     If Customer.BearsFee is true, ChargeAmount = Transaction Amount + AppliedFeeValue
     If Customer.BearsFee is false, ChargeAmount = Transaction Amount
-{SettlementAmount} The amount LannisterPay will settle the merchant the transaction belongs to after the applied fee has been deducted. In essence:        SettlementAmount = ChargeAmount - AppliedFeeValue
-```
+    
+**SettlementAmount**: The amount LannisterPay will settle the merchant the transaction belongs to after the applied fee has been deducted. In essence:        SettlementAmount = ChargeAmount - AppliedFeeValue
+
 
 #### Sample error response body ( HTTP 400 Bad Request )
 
