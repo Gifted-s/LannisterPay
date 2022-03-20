@@ -1,0 +1,62 @@
+name: Node CI
+2
+3
+on: [push]
+4
+5
+jobs:
+6
+  build:
+7
+8
+    runs-on: ubuntu-latest
+9
+10
+    strategy:
+11
+      matrix:
+12
+        node-version: [14.x]
+13
+14
+    steps:
+15
+    - uses: actions/checkout@v1
+16
+    - name: Use Node.js ${{ matrix.node-version }}
+17
+      uses: actions/setup-node@v1
+18
+      with:
+19
+        node-version: ${{ matrix.node-version }}
+20
+    
+21
+    - name: Test the Testcases 
+22
+      run: |
+23
+        npm install
+24
+        npm run build --if-present
+25
+        npm test
+26
+    - name: Login to Docker Hub
+27
+      run: docker login --username "${{ secrets.Docker_username }}" --password "${{ secrets.Docker_password }}"
+28
+    - name: Build the Docker Image 
+29
+      run: docker build . --file Dockerfile --tag lannisterpay/v1
+30
+    - name: Push the Docker Image 
+31
+      run: docker push lannisterpay/v1
+32
+      
+33
+      env:
+34
+        CI: true
