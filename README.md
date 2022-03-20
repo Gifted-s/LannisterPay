@@ -204,16 +204,16 @@ To compute transaction processing fee, make a HTTP POST  to http://localhost:800
 
 Request body details
 ```
-{ID} The unique id of the transaction.
-{Amount} The non-negative, numeric transaction amount.
-{Currency} The transaction currency.
-{CurrencyCountry} Country the transaction currency is applicable in. Useful for determining the transaction locale.
-{Customer} An object containing the customer information. It has the following fields:
-    {ID} Unique id of the customer .
-    {EmailAddress} Email address of the customer.
-    {FullName} Full name of the customer.
-    {BearsFee} Indicates whether or not the customer is set to bear the transaction cost. If this is true, the final amount to charge the customer is     Amount + ApplicableFee, if not, the customer is charged the same value as the transaction amount.
-{PaymentEntity} An object representing the payment entity to be charged for the transaction. It has the following fields:
+**ID** The unique id of the transaction.
+**Amount** The non-negative, numeric transaction amount.
+**Currency** The transaction currency.
+**CurrencyCountry** Country the transaction currency is applicable in. Useful for determining the transaction locale.
+**Customer** An object containing the customer information. It has the following fields:
+    **ID** Unique id of the customer .
+    **EmailAddress** Email address of the customer.
+    **FullName** Full name of the customer.
+    **BearsFee** Indicates whether or not the customer is set to bear the transaction cost. If this is true, the final amount to charge the customer is     Amount + ApplicableFee, if not, the customer is charged the same value as the transaction amount.
+**PaymentEntity** An object representing the payment entity to be charged for the transaction. It has the following fields:
     {ID} - Unique id of the entity.
     {Issuer} - The issuing company / organization for the entity e.g. Banks, Telco Providers / Wallet Service Providers.
     {Brand} - Applicable only to card-type transactions e.g. MASTERCARD, VISA, AMEX, VERVE e.t.c.
