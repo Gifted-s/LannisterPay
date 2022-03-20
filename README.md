@@ -1,4 +1,4 @@
-# Lannister Pay
+# Lannister Pay(v1.0)
 
 
 ## Services exposed by the library
