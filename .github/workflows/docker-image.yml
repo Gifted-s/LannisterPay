@@ -14,26 +14,30 @@ on:
   pull_request:
 
 env:
-  # TODO: Change variable to your image's name.
-  IMAGE_NAME: image
+  IMAGE_NAME: lannister
 
 jobs:
   # Run tests.
   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
   test:
-
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
+
     steps:
       - uses: actions/checkout@v2          
       - uses: actions/setup-node@v1 
       - name: Install packages
-        run:  npm install                          
-      - uses: actions/checkout@v2        
-      - name: Run Test
+        run:  yarn       
+      - name: Run tests
         run:  npm run test
+      - uses: actions/checkout@v2        
+      - name: Build Image
+        run: |
+          if [ -f docker-compose.test.yml ]; then
+            docker-compose --file docker-compose.test.yml build
+            docker-compose --file docker-compose.test.yml run sut
+          else
+            docker build . --file Dockerfile
+          fi
 
   # See also https://docs.docker.com/docker-hub/builds/
   push:
