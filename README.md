@@ -53,7 +53,7 @@ FLOW = TRANSACTION_PROCESSING_FEE_SERVICE
 The server is now accessible at localhost:8000
 
 ### Option 2 (Pull docker image from docker hub and run locally)
-Ensure docker is available and running on your nmachine
+Ensure docker is available and running on your machine
 
 Run pull command
 
