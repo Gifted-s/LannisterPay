@@ -16,9 +16,11 @@
 
 ## Environment Variables
 
-- Create a .env file and set NODE_ENV=developement mode
+- Create a .env file and set NODE_ENV=developement 
 
 ## Start server locally
+
+### Option 1 (Install and run locally)
 
 Run install command on your terminal
 
@@ -49,6 +51,39 @@ FLOW = TRANSACTION_PROCESSING_FEE_SERVICE
 ```
 
 The server is now accessible at localhost:8000
+
+### Option 2 (Pull docker image from docker hub and run)
+Ensure docker setup on your machine
+
+Run pull command
+
+```json
+docker pull ayodeji00/lannister:v1
+```
+
+Once the command above is completed then enter the docker run command
+```json
+$ docker run -p 8000:8000 --env NODE_ENV=development ayodeji00/lannister:v1
+```
+
+The server is now accessible at localhost:8000
+
+### Option 3 (Build and run docker image locally)
+Ensure docker setup on your machine
+
+Run build command
+
+```json
+docker build . -t <your docker hub username>/lannisterpay:v1
+```
+
+Once the command above is completed then enter the docker run command
+```json
+$ docker run -p 8000:8000 --env NODE_ENV=development <your docker hub username>/lannister:v1
+```
+
+The server is now accessible at localhost:8000
+
 
 
 ## Run test
@@ -107,13 +142,6 @@ npm run lint
 ```
 
 
-## Run Docker Image
-
-Pull image from docker hub (ensure you have docker setup on your machine)
-
-```json
-npm run lint
-```
 
 
 
