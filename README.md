@@ -223,13 +223,13 @@ Request body details
 
 
 **PaymentEntity** An object representing the payment entity to be charged for the transaction. It has the following fields
-    <p>&nbsp; &nbsp;  &nbsp; **ID**: - Unique id of the entity.</p>
-    <p>&nbsp; &nbsp;  &nbsp; **Issuer**: - The issuing company / organization for the entity e.g. Banks, Telco Providers / Wallet Service Providers.</p>
-    <p>&nbsp; &nbsp;  &nbsp;**Brand**: - Applicable only to card-type transactions e.g. MASTERCARD, VISA, AMEX, VERVE e.t.c. </p>
-    <p>&nbsp; &nbsp;  &nbsp; **Number**: The payment entity number (masked pan in case of credit/debit cards, bank account numbers, mobile numbers, wallet ids e.t.c.) </p>
-    <p>&nbsp; &nbsp;  &nbsp; **SixID**: The first six digits of the payment entity number.</p>
-    <p>&nbsp; &nbsp;  &nbsp; **Type**: The type of the entity e.g. CREDIT-CARD, DEBIT-CARD, BANK-ACCOUNT, USSD, WALLET-ID </p>
-    <p>&nbsp; &nbsp;  &nbsp;**Country**: The issuing country of the entity e.g. NG, US, GH, KE e.t.c. It's used together with the CurrencyCountry to determine a transaction's locale. </p>
+    <p>&nbsp; &nbsp;  &nbsp;     **ID**: - Unique id of the entity.</p>
+    <p>&nbsp; &nbsp;  &nbsp;     **Issuer**: - The issuing company / organization for the entity e.g. Banks, Telco Providers / Wallet Service Providers.</p>
+    <p>&nbsp; &nbsp;  &nbsp;     **Brand**: - Applicable only to card-type transactions e.g. MASTERCARD, VISA, AMEX, VERVE e.t.c. </p>
+    <p>&nbsp; &nbsp;  &nbsp;     **Number**: The payment entity number (masked pan in case of credit/debit cards, bank account numbers, mobile numbers, wallet ids e.t.c.) </p>
+    <p>&nbsp; &nbsp;  &nbsp;     **SixID**: The first six digits of the payment entity number.</p>
+    <p>&nbsp; &nbsp;  &nbsp;     **Type**: The type of the entity e.g. CREDIT-CARD, DEBIT-CARD, BANK-ACCOUNT, USSD, WALLET-ID </p>
+    <p>&nbsp; &nbsp;  &nbsp;     **Country**: The issuing country of the entity e.g. NG, US, GH, KE e.t.c. It's used together with the CurrencyCountry to determine a transaction's locale. </p>
 
 #### Sample success response body ( HTTP 200 OK )
 
