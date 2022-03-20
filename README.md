@@ -107,6 +107,16 @@ npm run lint
 ```
 
 
+## Run Docker Image
+
+Pull image from docker hub (ensure you have docker setup on your machine)
+
+```json
+npm run lint
+```
+
+
+
 
 
 
