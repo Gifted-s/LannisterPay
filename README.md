@@ -212,13 +212,13 @@ Request body details
 
 **CurrencyCountry**: Country the transaction currency is applicable in. Useful for determining the transaction locale.
 
-**Customer** An object containing the customer information. It has the following fields:
+**Customer** An object containing the customer information. It has the following fields
     **ID**: Unique id of the customer .
     **EmailAddress**: Email address of the customer.
     **FullName**: Full name of the customer.
     **BearsFee**: Indicates whether or not the customer is set to bear the transaction cost. If this is true, the final amount to charge the customer is     Amount + ApplicableFee, if not, the customer is charged the same value as the transaction amount.
 
-**PaymentEntity** An object representing the payment entity to be charged for the transaction. It has the following fields:
+**PaymentEntity** An object representing the payment entity to be charged for the transaction. It has the following fields
     **ID**: - Unique id of the entity.
     **Issuer**: - The issuing company / organization for the entity e.g. Banks, Telco Providers / Wallet Service Providers.
     **Brand**: - Applicable only to card-type transactions e.g. MASTERCARD, VISA, AMEX, VERVE e.t.c.
@@ -250,7 +250,7 @@ Response body details
 **ChargeAmount**: The final amount to charge the customer for the transaction. The value is dependent on what Customer.BearsFee is set to.
     If Customer.BearsFee is true, ChargeAmount = Transaction Amount + AppliedFeeValue
     If Customer.BearsFee is false, ChargeAmount = Transaction Amount
-    
+
 **SettlementAmount**: The amount LannisterPay will settle the merchant the transaction belongs to after the applied fee has been deducted. In essence:        SettlementAmount = ChargeAmount - AppliedFeeValue
 
 
