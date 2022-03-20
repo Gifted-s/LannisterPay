@@ -63,7 +63,7 @@ docker pull ayodeji00/lannister:v1
 
 Once the command above is completed then enter the docker run command
 ```console
-$ docker run -p 8000:8000 --env NODE_ENV=development ayodeji00/lannister:v1
+docker run -p 8000:8000 --env NODE_ENV=development ayodeji00/lannister:v1
 ```
 
 The server is now accessible at localhost:8000
@@ -79,7 +79,7 @@ docker build . -t <your docker hub username>/lannisterpay:v1
 
 Once the command above is completed then enter the docker run command
 ```console
-$ docker run -p 8000:8000 --env NODE_ENV=development <your docker hub username>/lannister:v1
+docker run -p 8000:8000 --env NODE_ENV=development <your docker hub username>/lannister:v1
 ```
 
 The server is now accessible at localhost:8000
