@@ -213,10 +213,10 @@ Request body details
 **CurrencyCountry**: Country the transaction currency is applicable in. Useful for determining the transaction locale.
 
 **Customer** An object containing the customer information. It has the following fields
-    <p>&nbsp;     **ID**: Unique id of the customer . </p>
-    <p>&nbsp;     **EmailAddress**: Email address of the customer. </p>
-    <p>&nbsp;     **FullName**: Full name of the customer. </p>
-    <p>&nbsp;     **BearsFee**: Indicates whether or not the customer is set to bear the transaction cost. If this is true, the final amount to charge the customer is     Amount + ApplicableFee, if not, the customer is charged the same value as the transaction amount. </p>
+    <p>&nbsp; &nbsp;  &nbsp;      **ID**: Unique id of the customer . </p>
+    <p>&nbsp; &nbsp; &nbsp;       **EmailAddress**: Email address of the customer. </p>
+    <p>&nbsp; &nbsp; &nbsp;       **FullName**: Full name of the customer. </p>
+    <p>&nbsp; &nbsp; &nbsp;       **BearsFee**: Indicates whether or not the customer is set to bear the transaction cost. If this is true, the final amount to charge the customer is     Amount + ApplicableFee, if not, the customer is charged the same value as the transaction amount. </p>
  
   
  
