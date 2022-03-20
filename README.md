@@ -24,19 +24,19 @@
 
 Run install command on your terminal
 
-```json
+```console
 npm install
 ```
 
 OR
 
-```json
+```console
 yarn install
 ```
 
 Once the above command is completed then run the start command for development mode
 
-```json
+```console
 npm run start-dev
 ```
 
@@ -53,32 +53,32 @@ FLOW = TRANSACTION_PROCESSING_FEE_SERVICE
 The server is now accessible at localhost:8000
 
 ### Option 2 (Pull docker image from docker hub and run locally)
-Ensure docker is available and running on your nmachine
+Ensure docker is available and running on your machine
 
 Run pull command
 
-```json
+```console
 docker pull ayodeji00/lannister:v1
 ```
 
 Once the command above is completed then enter the docker run command
-```json
+```console
 $ docker run -p 8000:8000 --env NODE_ENV=development ayodeji00/lannister:v1
 ```
 
 The server is now accessible at localhost:8000
 
 ### Option 3 (Build and run docker image locally)
-Ensure docker setup on your machine
+Ensure docker is available and running on your machine
 
 Run build command
 
-```json
+```console
 docker build . -t <your docker hub username>/lannisterpay:v1
 ```
 
 Once the command above is completed then enter the docker run command
-```json
+```console
 $ docker run -p 8000:8000 --env NODE_ENV=development <your docker hub username>/lannister:v1
 ```
 
@@ -90,7 +90,7 @@ The server is now accessible at localhost:8000
 
 Run test command on your terminal
 
-```json
+```console
 npm test
 ```
 
@@ -137,7 +137,7 @@ The eslint coding standard and convention is used
 
 Run the lint command
 
-```json
+```console
 npm run lint
 ```
 
