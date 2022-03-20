@@ -36,7 +36,7 @@ jobs:
 
     - name: Login to Docker Hub
 
-      run: docker login --username "${{ secrets.Docker_username }}" --password "${{ secrets.Docker_password }}"
+      run: docker login --username "${{ secrets.DOCKER_USERNAME }}" --password "${{ secrets.DOCKER_PASSWORD }}"
     - name: Build the Docker Image 
 
       run: docker build . --file Dockerfile --tag lannisterpay/v1
