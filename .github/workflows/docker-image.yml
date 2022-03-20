@@ -24,23 +24,26 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [12.x]
     steps:
-      - uses: actions/checkout@v2          
-      - uses: actions/setup-node@v1 
-      - name: Install packages
-        run:  yarn       
-      - name: Run tests
-        run:  npm run test
-      - uses: actions/checkout@v2        
-      - name: Build Image
-        run: |
-          if [ -f docker-compose.test.yml ]; then
-            docker-compose --file docker-compose.test.yml build
-            docker-compose --file docker-compose.test.yml run sut
-          else
-            docker build . --file Dockerfile
-          fi
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install packages
+      run:  yarn       
+    - name: Run tests
+      run:  npm run test
+    - uses: actions/checkout@v2        
+    - name: Build Image
+      run: |
+        if [ -f docker-compose.test.yml ]; then
+          docker-compose --file docker-compose.test.yml build
+          docker-compose --file docker-compose.test.yml run sut
+        else
+          docker build . --file Dockerfile
+        fi
 
   # See also https://docs.docker.com/docker-hub/builds/
   push:
