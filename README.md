@@ -7,7 +7,7 @@
 - Store fee configuration specifications
 - Compute transaction prosessing fee
 
-
+Plus: All request is processed between 10 - 15 milliseconds
 
 ## Requirement
 
